@@ -33,5 +33,9 @@ public class Resena {
     @Column(nullable = false)
     private String fechaResena;
     
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_producto", nullable = false)
+    private Producto producto;
+
 
 }
