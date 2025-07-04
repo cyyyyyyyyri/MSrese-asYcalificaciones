@@ -17,7 +17,7 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idProducto;
+    private Long idProducto;  // Este es el ID del producto, debe coincidir con el campo 'id_producto' en la tabla
 
     @Column(nullable = false, length = 250)
     private String nombre;
@@ -33,7 +33,7 @@ public class Producto {
 
     // Constructor adicional para el test
     public Producto(int idProducto, String nombre, double precio, String descripcion) {
-        this.idProducto = idProducto;
+        this.idProducto = Long.valueOf(idProducto);
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;

@@ -18,18 +18,18 @@ public class ResenaModelAssembler extends RepresentationModelAssemblerSupport<Re
     @Override
     public ResenaModel toModel(Resena resena) {
         ResenaModel model = new ResenaModel(
-                resena.getIdResena(),
-                resena.getIdProducto(),
-                resena.getIdCliente(),
+                resena.getId_Resena(),
+                resena.getId_Producto(),
+                resena.getId_Cliente(),
                 resena.getComentario(),
                 resena.getCalificacion(),
-                resena.getFechaResena()
+                resena.getFecha_Resena()
         );
 
-        model.add(linkTo(methodOn(ResenaControllerV2.class).obtenerPorId(resena.getIdResena())).withSelfRel());
+        model.add(linkTo(methodOn(ResenaControllerV2.class).obtenerPorId(resena.getId_Resena())).withSelfRel());
         model.add(linkTo(methodOn(ResenaControllerV2.class).obtenerTodos()).withRel("resenas"));
-        model.add(linkTo(methodOn(ResenaControllerV2.class).eliminarResena(resena.getIdResena())).withRel("eliminar"));
-        model.add(linkTo(methodOn(ResenaControllerV2.class).actualizarResena(resena.getIdResena(), resena)).withRel("actualizar"));
+        model.add(linkTo(methodOn(ResenaControllerV2.class).eliminarResena(resena.getId_Resena())).withRel("eliminar"));
+        model.add(linkTo(methodOn(ResenaControllerV2.class).actualizarResena(resena.getId_Resena(), resena)).withRel("actualizar"));
 
         return model;
     }

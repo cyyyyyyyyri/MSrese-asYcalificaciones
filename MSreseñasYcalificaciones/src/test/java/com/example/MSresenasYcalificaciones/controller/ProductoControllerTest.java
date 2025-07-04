@@ -1,6 +1,6 @@
 package com.example.MSresenasYcalificaciones.controller;
 
-import com.example.MSresenasYcalificaciones.dto.ProductoDTO;
+//import com.example.MSresenasYcalificaciones.dto.ProductoDTO;
 import com.example.MSresenasYcalificaciones.model.Producto;
 import com.example.MSresenasYcalificaciones.service.ProductoService;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.List;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;

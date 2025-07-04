@@ -54,10 +54,10 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-    <groupId>org.springdoc</groupId>
-    <artifactId>springdoc-openapi-ui</artifactId>
-    <version>1.6.11</version>
+<dependency>
+	<groupId>org.springdoc</groupId>
+	<artifactId>springdoc-openapi-ui</artifactId>
+	<version>1.6.11</version>
 </dependency>
 
 		

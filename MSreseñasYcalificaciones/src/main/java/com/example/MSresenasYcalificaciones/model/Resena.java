@@ -11,18 +11,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-
 public class Resena {
-    @Id 
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idResena;
+    private int id_Resena;
+
+    @Column(name = "id_producto", insertable = false, updatable = false)
+    private int id_Producto;
 
     @Column(nullable = false)
-    private int idProducto;
-
-    @Column(nullable = false)
-    private int idCliente;
+    private int id_Cliente;
 
     @Column(nullable = false, length = 500)
     private String comentario;
@@ -31,11 +30,9 @@ public class Resena {
     private double calificacion; // valor entre 1 y 5 
 
     @Column(nullable = false)
-    private String fechaResena;
-    
+    private String fecha_Resena;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_producto", nullable = false)
+    @JoinColumn(name = "id_producto", referencedColumnName = "idProducto", insertable = false, updatable = false)
     private Producto producto;
-
-
 }

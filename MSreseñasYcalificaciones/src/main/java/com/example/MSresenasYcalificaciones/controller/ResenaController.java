@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/resenas")
 public class ResenaController {
@@ -20,39 +18,35 @@ public class ResenaController {
         return ResponseEntity.ok(resenaService.guardResena(resena));
     }
 
-    @GetMapping("/{idResena}")
-    public ResponseEntity<Resena> obtenerResenaPorId(@PathVariable int idResena) {
-        return resenaService.obtenerResenaPorId(idResena)
+    @GetMapping("/{id_Resena}")
+    public ResponseEntity<Resena> obtenerResenaPorId(@PathVariable int id_Resena) {
+        return resenaService.obtenerResenaPorId(id_Resena)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping
-    public List<Resena> listarResenas() {
+    public Iterable<Resena> listarResenas() {
         return resenaService.listarResenas();
     }
 
-    @GetMapping("/producto/{idProducto}")
-    public List<Resena> obtenerResenasPorProducto(@PathVariable int idProducto) {
-        return resenaService.obtenerResenasPorProducto(idProducto);
+@PutMapping("/{id_Resena}")
+public ResponseEntity<Resena> actualizarResena(@PathVariable int id_Resena, @RequestBody Resena resena) {
+    try {
+        Resena updatedResena = resenaService.actualizarResena(id_Resena, resena);
+        return ResponseEntity.ok(updatedResena);
+    } catch (RuntimeException e) {
+        return ResponseEntity.notFound().build(); // Si la reseña no se encuentra
     }
+}
 
-    @PutMapping("/{idResena}")
-    public ResponseEntity<Resena> actualizarResena(@PathVariable int idResena, @RequestBody Resena datoResena) {
+    @DeleteMapping("/{id_Resena}")
+    public ResponseEntity<Void> eliminarResena(@PathVariable int id_Resena) {
         try {
-            return ResponseEntity.ok(resenaService.actualizarResena(idResena, datoResena));
-        } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build(); // Si la reseña no se encuentra, devolvemos 404
-        }
-    }
-
-    @DeleteMapping("/{idResena}")
-    public ResponseEntity<Void> eliminarResena(@PathVariable int idResena) {
-        try {
-            resenaService.eliminarResena(idResena);
+            resenaService.eliminarResena(id_Resena);
             return ResponseEntity.noContent().build();
         } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build(); // Si la reseña no se encuentra, devolvemos 404
+            return ResponseEntity.notFound().build(); // Si la reseña no se encuentra
         }
     }
 }

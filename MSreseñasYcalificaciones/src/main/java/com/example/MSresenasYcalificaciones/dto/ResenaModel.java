@@ -4,31 +4,31 @@ import org.springframework.hateoas.RepresentationModel;
 
 public class ResenaModel extends RepresentationModel<ResenaModel> {
 
-    private int idResena;
-    private int idProducto;
-    private int idCliente;
+    private int id_Resena;
+    private int id_Producto;
+    private int id_Cliente;
     private String comentario;
     private double calificacion;
-    private String fechaResena;
+    private String fecha_Resena;
 
-    public ResenaModel(int idResena, int idProducto, int idCliente, String comentario, double calificacion, String fechaResena) {
-        this.idResena = idResena;
-        this.idProducto = idProducto;
-        this.idCliente = idCliente;
+    public ResenaModel(int id_Resena, int id_Producto, int id_Cliente, String comentario, double calificacion, String fecha_Resena) {
+        this.id_Resena = id_Resena;
+        this.id_Producto = id_Producto;
+        this.id_Cliente = id_Cliente;
         this.comentario = comentario;
         this.calificacion = calificacion;
-        this.fechaResena = fechaResena;
+        this.fecha_Resena = fecha_Resena;
     }
 
     // Getters and Setters
-    public int getIdResena() { return idResena; }
-    public void setIdResena(int idResena) { this.idResena = idResena; }
+    public int getId_Resena() { return id_Resena; }
+    public void setId_Resena(int id_Resena) { this.id_Resena = id_Resena; }
 
-    public int getIdProducto() { return idProducto; }
-    public void setIdProducto(int idProducto) { this.idProducto = idProducto; }
+    public int getId_Producto() { return id_Producto; }
+    public void setId_Producto(int id_Producto) { this.id_Producto = id_Producto; }
 
-    public int getIdCliente() { return idCliente; }
-    public void setIdCliente(int idCliente) { this.idCliente = idCliente; }
+    public int getId_Cliente() { return id_Cliente; }
+    public void setId_Cliente(int id_Cliente) { this.id_Cliente = id_Cliente; }
 
     public String getComentario() { return comentario; }
     public void setComentario(String comentario) { this.comentario = comentario; }
@@ -36,6 +36,6 @@ public class ResenaModel extends RepresentationModel<ResenaModel> {
     public double getCalificacion() { return calificacion; }
     public void setCalificacion(double calificacion) { this.calificacion = calificacion; }
 
-    public String getFechaResena() { return fechaResena; }
-    public void setFechaResena(String fechaResena) { this.fechaResena = fechaResena; }
+    public String getFecha_Resena() { return fecha_Resena; }
+    public void setFecha_Resena(String fecha_Resena) { this.fecha_Resena = fecha_Resena; }
 }

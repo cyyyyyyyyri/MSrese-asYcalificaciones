@@ -31,7 +31,7 @@ public class ResenaService {
 
     public List<Resena> obtenerResenasPorProducto(int idProducto){
         return resenaRepository.findAll().stream()
-        .filter(resena -> resena.getIdProducto() == idProducto)
+        .filter(resena -> resena.getId_Producto() == idProducto)
         .toList();
     }
 
@@ -39,7 +39,7 @@ public class ResenaService {
         Resena resena = resenaRepository.findById(idResena).orElseThrow(()-> new RuntimeException("Reseña no encontrada"));
         resena.setComentario(datosResena.getComentario());
         resena.setCalificacion(datosResena.getCalificacion());
-        resena.setFechaResena(datosResena.getFechaResena());
+        resena.setFecha_Resena(datosResena.getFecha_Resena());
         return resenaRepository.save(resena);
 
     }
@@ -47,4 +47,5 @@ public class ResenaService {
     public void eliminarResena(int idResena) {
         resenaRepository.deleteById(idResena);
     }
+    
 }

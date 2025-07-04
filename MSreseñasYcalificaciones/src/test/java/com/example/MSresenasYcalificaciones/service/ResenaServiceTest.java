@@ -38,7 +38,7 @@ class ResenaServiceTest {
         Resena result = resenaService.guardResena(resena);
 
         assertNotNull(result);
-        assertEquals(resena.getIdResena(), result.getIdResena());
+        assertEquals(resena.getId_Resena(), result.getId_Resena());
         verify(resenaRepository, times(1)).save(resena);
     }
 
@@ -49,7 +49,7 @@ class ResenaServiceTest {
         Optional<Resena> result = resenaService.obtenerResenaPorId(1);
 
         assertTrue(result.isPresent());
-        assertEquals(resena.getIdResena(), result.get().getIdResena());
+        assertEquals(resena.getId_Resena(), result.get().getId_Resena());
         verify(resenaRepository, times(1)).findById(1);
     }
 
