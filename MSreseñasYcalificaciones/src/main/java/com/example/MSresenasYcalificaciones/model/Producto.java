@@ -3,6 +3,8 @@ package com.example.MSresenasYcalificaciones.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,6 +31,7 @@ public class Producto {
     private String descripcion;
 
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference // Aquí se indica que este lado de la relación debe ser serializado
     private List<Resena> resenas = new ArrayList<>();
 
     // Constructor adicional para el test

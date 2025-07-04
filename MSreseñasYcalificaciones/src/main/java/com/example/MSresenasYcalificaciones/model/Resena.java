@@ -1,6 +1,8 @@
 package com.example.MSresenasYcalificaciones.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,5 +36,6 @@ public class Resena {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_producto", referencedColumnName = "idProducto", insertable = false, updatable = false)
+    @JsonBackReference // Aquí se evita la serialización recursiva
     private Producto producto;
 }
